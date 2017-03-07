@@ -1,0 +1,56 @@
+﻿@model SelfBoard.Domain.Entities.Photo
+
+@{
+    ViewBag.Title = "CutImageRedactor";
+    Layout = null;
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<link href="/Content/jquery.Jcrop.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/jquery.Jcrop.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+
+    <p align="center">
+        <img id="cropbox" alt="cat" src="@Url.Action("GetImage", "Image", new {Model.UserId })" />
+    </p>
+    <p align="center">
+        <table>
+            <tr>
+                <td>
+                    @using (Html.BeginForm("CutImage", "Image", FormMethod.Post))
+                    {
+                        <input type="hidden" name="X" id="X" />
+                            <input type="hidden" name="Y" id="Y" />
+                            <input type="hidden" name="W" id="W" />
+                            <input type="hidden" name="H" id="H" />
+
+                            <input type="submit" id="btnsave" name="btnsave" value="Выбрать миниатюру" />
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("Home", "Person"))
+                    {
+                        @Html.Hidden("UserId", Model.UserId);
+                        @Html.Hidden("SelectedCategory", "Моя страница");
+
+                        <input type="submit" value="Отмена" />
+
+                    }
+                </td>
+            </tr>
+        </table>
+    </p> 
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#cropbox').Jcrop({
+                onSelect: updateCoords
+            });
+        });
+
+        function updateCoords(c) {
+            $('#X').val(c.x);
+            $('#Y').val(c.y);
+            $('#W').val(c.w);
+            $('#H').val(c.h);
+        };
+    </script>

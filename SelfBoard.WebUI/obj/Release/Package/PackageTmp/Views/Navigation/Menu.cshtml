@@ -1,0 +1,17 @@
+﻿@model IEnumerable<SelfBoard.WebUI.Models.NavigationModel>
+
+@foreach (var str in Model)
+{
+    <div>
+        @Html.RouteLink( str.String, new {
+           controller = str.Controller,
+           action = str.Action,
+           UserId = str.CurrentId,
+           selectedItem = str.String
+       },
+       new
+       {
+           @class = ViewBag.SelectedCategory == str.String ? "selected" : "not-selected"
+       }) 
+    </div>
+}

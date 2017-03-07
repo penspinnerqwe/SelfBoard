@@ -1,0 +1,25 @@
+﻿@model IEnumerable<SelfBoard.WebUI.Models.ComentModel>
+
+@foreach (var coment in Model)
+{
+    <div class="news-coment">
+        <table>
+            <tr>
+                <td>
+                    @if (coment.IsImgExist)
+                    {
+                        
+                        <img class="li-frend-avatar" src="@Url.Action("GetIconImage", "Image", new { UserId = coment.CommentObj.UserId})" />
+                    }
+                    else
+                    {
+                        <img class="li-frend-avatar" src="~/Content/nophoto.gif" />
+                    }                  
+                </td>
+                <td>
+                    @coment.CommentObj.CommentString
+                </td>
+            </tr>
+        </table>
+    </div>
+}

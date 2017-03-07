@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SelfBoard.WebUI.Models.MessageModel>
+@{
+    ViewBag.Title = "ConcreteMessages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("SendMessage", "Message", FormMethod.Post))
+{
+    <div class="frend-infarmation">
+        @Html.Hidden("CurrentUserId", SelfBoard.WebUI.Models.MessageModel.CurrentUserId)
+
+            <table>
+                <tr>
+                    <td><input type="submit" value="Отправить" /></td>
+                    <td>@Html.TextBox("MessageString", null, new { @class = "text-box" })</td>
+                </tr>
+            </table>
+
+    </div>
+}
+
+@foreach (var message in Model)
+{
+    if (SelfBoard.WebUI.Models.MessageModel.CurrentUserId == message.MessageObj.ReceiverId)
+    {
+        <div class="li-frend-infarmation">
+            <div class="left-div">
+                <table>
+                    <tr>
+                        <td>
+                            @if (message.IsSenderImgExist)
+                            {
+                                <img class="li-frend-avatar"
+                                     src="@Url.Action("GetIconImage", "Image", new { UserId = message.MessageObj.SenderId })" />
+                            }
+                            else
+                            {
+                                <img class="li-frend-avatar" src="~/Content/nophoto.gif" />
+                            }
+                        </td>
+                        <td class="ninja" style="text-align: center;">Дата<br>@message.MessageObj.SendDate</td>
+                        <td> @message.MessageObj.MessageString</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="li-frend-infarmation">
+            <div class="right-div">
+                <table>
+                    <tr> 
+                        <td>@message.MessageObj.MessageString</td> 
+                        <td class="ninja" style="text-align: center;">Дата<br>@message.MessageObj.SendDate</td> 
+                        <td>
+                             @if (message.IsSenderImgExist)
+                             {
+                                <img class="li-frend-avatar"
+                                     src="@Url.Action("GetIconImage", "Image", new { UserId = message.MessageObj.SenderId })" />
+                             }
+                             else
+                             {
+                                <img class="li-frend-avatar" src="~/Content/nophoto.gif" />
+                             }
+                        </td> 
+                    </tr>
+                </table>
+            </div>
+        </div>
+    }
+}       

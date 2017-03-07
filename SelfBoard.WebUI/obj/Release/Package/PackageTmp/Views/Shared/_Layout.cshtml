@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+</head>
+<body>
+    <div class="background-heder"></div>
+    <div class="contener">
+        <div class="heder">
+            <div class="logodiv"><img src="~/Content/90logo.png" width="60px"></div>
+            <div>
+                @{ Html.RenderAction("TopMenu", "Navigation"); }
+            </div>
+        </div>
+        <div class="logo-botton-background"></div>
+
+        <div class="content">
+            <div class="left-content-dive">
+                <div>
+                    @{ Html.RenderAction("Menu", "Navigation"); }
+                </div>
+            </div>
+
+            <div class="right-content-dive">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

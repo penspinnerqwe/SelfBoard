@@ -1,0 +1,17 @@
+﻿@model SelfBoard.Domain.Entities.Photo
+@using SelfBoard.WebUI.Infrastructure;
+
+@if (Model.UserId == ViewBag.CurrentUserId)
+{
+    <div @Html.GetDivNewId("DeleteTarget", Model.PhotoId.ToString())>
+        @using (Ajax.BeginForm("DeleteNews", "News", new AjaxOptions
+        {
+            UpdateTargetId = "DeleteTarget" + Model.PhotoId.ToString()
+        }))
+        {
+            @Html.Hidden("PhotoId", Model.PhotoId)
+            <input class="action-button" type="submit" value="Удалить" />
+        }
+    </div>
+}
+

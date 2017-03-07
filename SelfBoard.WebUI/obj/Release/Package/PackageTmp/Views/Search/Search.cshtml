@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Ajax.BeginForm("SearchPeiole", "Search", new AjaxOptions { UpdateTargetId = "renderTarget" }))
+{
+    <div class="frend-infarmation">
+        <table>
+        <tr>
+            <td><input type="submit" value="Искать" /></td>
+            <td>@Html.TextBox("arg", null, new { @class = "text-box" })</td>
+        </tr>
+        </table>
+    </div>
+}
+
+        <div id="renderTarget">
+
+        </div>

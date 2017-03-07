@@ -1,0 +1,15 @@
+﻿@model SelfBoard.WebUI.Models.LikeControllModel
+@using SelfBoard.WebUI.Infrastructure;
+
+<div @Html.GetDivNewId("LikesTarget",Model.PhotoId.ToString())>
+    @using (Ajax.BeginForm("AddLike", "Like", new AjaxOptions
+    {
+        UpdateTargetId = "LikesTarget" + Model.PhotoId.ToString()
+    }))
+    {
+        @Html.Hidden("PhotoId", Model.PhotoId)
+        <input class="action-button" type="submit" @Html.GetLikesCount(Model.Count) />
+    }
+</div>
+
+

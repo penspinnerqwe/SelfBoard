@@ -1,0 +1,509 @@
+﻿/*****************************************************************************/
+/***********************************  HEDER  *********************************/
+/*****************************************************************************/
+.heder{
+	height: 50px; 	
+    background: black;
+}
+.heder > div{
+    float: right;
+    color: #9d9a9a; 
+}
+.heder > .logodiv {
+    float: left;
+    margin-top: -8px;
+    margin-left: -5px;
+}
+.heder > .logodiv > img {
+    border-radius: 5px;
+}
+.heder > div {
+    margin: 0;
+    padding: 6px;
+}
+.heder > div > div{
+    display: block;
+    width: 150px;
+    float: right;
+}
+@media (max-width: 500px) {
+    .heder > div > div{
+        display: block;
+        width: 100px;
+        float: right;
+    }
+}
+/*****************************************************************************/
+/*****************************************************************************/
+/*****************************************************************************/
+body{
+    font-family: 'Calibri';
+    text-decoration: none;
+    background-color: #D9D9D9;
+}
+.contener{
+	width: 80%; 
+    margin-left: 10%;
+    margin-top: -50px;
+	height: 600px; 	
+}
+@media (max-width: 510px) {
+    .contener{
+	    width: 100%; 
+        margin-left: 0%;
+        margin-top: -50px;
+	    height: 600px; 	
+    }
+}
+.background-heder{
+    margin: -20px -20px 0px -20px;
+	height: 70px; 	
+    background: black;
+    border-radius: 0px 0px 5px 5px; 
+}
+.logo-botton-background{
+    height: 23px; 	
+    width: 100%;
+}
+input[type=submit] {
+    border-radius: 5px;
+    border-color: black;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 5px 20px 5px 20px ;
+    display: block;
+    text-decoration: none; 
+    color: white;
+    background-color: #353535;
+    text-align: center;
+    margin: 5px 10px 10px 10px;
+}
+input[type=submit]:hover{
+    background-color: #C90D0D;
+    color: White;
+}
+input[type=file] {
+    border-radius: 5px;
+    border-color: black;
+    font-weight: 500;
+    font-size: 18px;
+    display: block;
+    text-decoration: none; 
+    text-align: center;
+    margin: 5px 10px 10px 10px;
+}
+.text-box {
+    border-radius: 5px;
+    border-color: black;
+    padding: 5px 20px 5px 20px ;
+    display: block;
+    text-decoration: none; 
+    background-color: white;
+    color: black;
+    margin: 5px 10px 5px 10px;
+    text-align: left;
+    width: 98%;
+    font-size: 18px;
+}
+@media (max-width: 1290px) {
+    .text-box {
+        border-radius: 5px;
+        border-color: black;
+        padding: 5px 20px 5px 20px ;
+        display: block;
+        text-decoration: none; 
+        background-color: white;
+        color: black;
+        margin: 5px 10px 5px 10px;
+        text-align: left;
+        width: 80%;
+        font-size: 18px;
+    }
+}
+@media (max-width: 600px) {
+    .text-box {
+        border-radius: 5px;
+        border-color: black;
+        padding: 5px 20px 5px 20px ;
+        display: block;
+        text-decoration: none; 
+        background-color: white;
+        color: black;
+        margin: 5px 10px 5px 10px;
+        text-align: left;
+        width: 70%;
+        font-size: 18px;
+    }
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+/*****************************************************************************/
+/*****************************   Comment-fild  *******************************/
+/*****************************************************************************/
+.send-inform {
+    width: 96%;
+    float: right;
+}
+.send-inform > .left-div {
+    display: block;
+    float: left;
+}
+.send-inform > .right-div {
+    display: block;
+    float: right;
+}
+@media (max-width: 1230px) {
+    .send-inform > .left-div {
+        display: block;
+        float: left;
+        width: 60%;
+    }
+}
+/*****************************************************************************/
+/*****************************   infarmation  ********************************/
+/*****************************************************************************/
+.avatar {
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.info {
+    margin: 0px 10px 10px 10px;
+    background-color: white;
+    border-radius: 5px;
+    display: block; 
+    float: left;
+    width: 100%
+}
+@media (max-width: 1080px) {
+    .info {
+        margin: 0px 10px 10px 0px;
+        background-color: white;
+        border-radius: 5px;
+        display: block; 
+        float: left;
+        width: 100%
+    }
+}
+.info > div {
+    padding: 20px;
+    width: 40%;
+    display: block; 
+    float: left;
+}
+@media (max-width: 760px) {
+    .info > div {
+        padding: 0px;
+        width: 100%;
+        display: block; 
+        float: left;
+    }
+}
+td {
+    padding: 5px;
+    max-width: 400px;
+    vertical-align: top;
+}
+a > div:hover {
+    background-color: #353535;
+    color: white;
+}
+form {
+    float: right;
+    width: 100%;
+}
+/*****************************************************************************/
+/*******************************  CONTENT  ***********************************/
+/*****************************************************************************/
+.content{
+	height: 50px; 	
+}
+.right-content-dive{   
+        border-radius: 5px;
+        float: right; 
+        width: 82%;
+}
+.left-content-dive{
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        float: left;
+        width: 16%;
+}
+@media (max-width: 1285px) {
+    .right-content-dive{   
+        border-radius: 5px;
+        float: right; 
+        width: 81%;
+    }
+    .left-content-dive{
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        float: left;
+        width: 16%;       
+    }
+}
+@media (max-width: 1080px) {
+    .right-content-dive{   
+        border-radius: 5px;
+        float: left; 
+        width: 100%;
+    }
+    .left-content-dive{
+        background-color: white;
+        border-radius: 5px;
+        float: left;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 0px;
+    }
+}
+/*****************************************************************************/
+/***************************DINAMIC_CLASSES***********************************/
+/*****************************************************************************/
+.selected {
+    color: white;
+    text-decoration: none; 
+    display: block;
+    background-color: #353535; 
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 5px 13px 5px 13px ;
+}
+.not-selected {
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 5px 13px 5px 13px ;
+    display: block;
+    text-decoration: none; 
+    color: black;
+}
+.not-selected:hover {
+    color: white;
+    background-color: #D9D9D9;
+}
+/*****************************************************************************/
+/*************************   DINAMIC_CLASSES  ********************************/
+/*****************************************************************************/
+.action-button {
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 5px 20px 5px 20px ;
+    display: block;
+    text-decoration: none; 
+    color: white;
+    background-color: #353535;
+    text-align: center;
+    margin: 5px 10px 10px 10px;
+}
+@media (max-width: 760px) {
+    .action-button {
+        border-radius: 5px;
+        font-weight: 100;
+        font-size: 16px;
+        padding: 5px 10px 5px 10px ;
+        display: block;
+        text-decoration: none; 
+        color: white;
+        background-color: #353535;
+        text-align: center;
+        margin: 5px 5px 5px 10px;
+    }
+}
+@media (max-width: 500px) {
+    .action-button {
+        border-radius: 5px;
+        font-weight: 100;
+        font-size: 12px;
+        padding: 5px 2px 5px 2px ;
+        display: block;
+        text-decoration: none; 
+        color: white;
+        background-color: #353535;
+        text-align: center;
+        margin: 1px;
+    }
+}
+.action-button:hover{
+    background-color: #C90D0D;
+    color: White;
+}
+@media (max-width: 666px) {
+    .ninja {
+        display: none;
+    }
+}
+/*****************************************************************************/
+/****************************  FREND-LIST-STYLE  *****************************/
+/*****************************************************************************/
+.frend-infarmation {
+    border-radius: 5px;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    margin: 0px 10px 10px 10px;
+    display: table;
+}
+@media (max-width: 1080px) {
+    .frend-infarmation {
+        border-radius: 5px;
+        width: 100%;
+        background-color: white;
+        padding: 10px 0px 10px 0px;
+        margin: 0px 0px 10px 0px;
+        display: table;
+    }
+}
+.frend-infarmation > div {   
+    border-radius: 5px;
+    display: block;
+    float: left; 
+}
+.frend-avatar {
+    width: 90px; 
+    height: 90px; 
+    border-radius: 90px; 
+}
+@media (max-width: 866px) {
+    .frend-avatar {
+        width: 60px; 
+        height: 60px; 
+        border-radius: 60px; 
+    }
+}
+@media (max-width: 580px) {
+    .frend-avatar {
+        width: 50px; 
+        height: 50px; 
+        border-radius: 50px; 
+    }
+}
+/*****************************************************************************/
+/*********************   MESSAGE-LIST-STYLES   *******************************/
+/*****************************************************************************/
+.li-frend-infarmation {
+    border-radius: 5px;
+    width: 100%;
+    margin: 0px 10px 10px 10px;
+    display: table;
+}
+@media (max-width: 1080px) {
+    .li-frend-infarmation {
+        border-radius: 5px;
+        width: 100%;
+        margin: 0px 0px 10px 0px;
+        display: table;
+    }
+}
+.li-frend-infarmation > .left-div {   
+    border-radius: 5px;
+    background-color: white;
+    display: block;
+    float: left; 
+}
+.li-frend-infarmation > .right-div {   
+    border-radius: 5px;
+    background-color: white;
+    display: block;
+    float: right; 
+}
+.li-frend-avatar {
+    width: 45px; 
+    height: 45px; 
+    border-radius: 45px; 
+}
+/*****************************************************************************/
+/***************************   NEWS-STYLES   *********************************/
+/*****************************************************************************/
+.news-info {
+    margin: 0px 10px 10px 10px;
+    background-color: white;
+    border-radius: 5px;
+    float: left;
+    width: 100%;
+}
+@media (max-width: 1080px) {
+    .news-info {
+        margin: 0px 10px 10px 0px;
+        background-color: white;
+        border-radius: 5px;
+        float: left;
+        width: 100%;
+    }
+}
+.news-info > .left-div {
+    border-radius: 5px;
+    margin: 20px 0px 0px 20px;
+    display: block;
+    float: left;
+    width: 41%;
+    align-content: center;
+}
+.news-info > .left-div > div {
+    display: block;
+    float: left;
+    align-content: center;
+}
+.news-info > .right-div {
+    border-radius: 5px;
+    margin: 20px 20px 0px 0px;
+    display: block;
+    float: right;
+    width: 54%;
+}
+@media (max-width: 1280px) {
+    .news-info > .right-div {
+        border-radius: 5px;
+        margin: 20px 20px 0px 0px;
+        display: block;
+        float: right;
+        width: 53%;
+    }
+}
+@media (max-width: 866px) {
+    .news-info > .left-div {
+        border-radius: 5px;
+        margin: 0px;
+        display: block;
+        float: left;
+        width: 100%;
+        align-content: center;
+    }
+    .news-info > .right-div {
+        border-radius: 5px;
+        margin: 0px;
+        display: block;
+        float: left;
+        width: 100%;
+    }
+}
+.news-coment {
+    background-color: #353535;
+    border-radius: 5px;
+    color: white;
+    display: block;
+    float: right;
+    margin-bottom: 5px;
+    width: 96%;
+}
+@media (max-width: 866px) {
+    .news-coment {
+        background-color: #353535;
+        border-radius: 5px;
+        color: white;
+        display: block;
+        float: left;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+}
+
+/*****************************************************************************/
+/*****************************************************************************/
+/*****************************************************************************/

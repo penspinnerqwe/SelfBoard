@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SelfBoard.WebUI.Models.NewsModel>
+@using SelfBoard.WebUI.Infrastructure;
+
+@foreach (var item in Model)
+{
+    <div class="news-info">
+
+        <div class="left-div">
+            <img class="avatar" src="@Url.Action("GetNewsImage", "Image", new { item.NewsObj.PhotoId })" />
+            <div>
+                @Html.Action("LikeControll", "Like", new { item.NewsObj.PhotoId })
+            </div>
+            <div>
+                @Html.Action("GetDeleteNewsButton", "News", new { item.NewsObj.PhotoId })
+            </div>
+        </div>
+
+        <div class="right-div">
+
+            <div @Html.GetDivNewId("renderTarget", item.NewsObj.PhotoId.ToString())>
+                @Html.Action("GetComments", "Comment", new { item.NewsObj.PhotoId })
+            </div>
+
+            @using (Ajax.BeginForm("GetAddedComments", "Comment", new AjaxOptions { UpdateTargetId = "renderTarget" + item.NewsObj.PhotoId.ToString() }))
+            {
+                @Html.Hidden("UserId", item.NewsObj.UserId)
+                @Html.Hidden("PhotoId", item.NewsObj.PhotoId)
+
+                <div class="send-inform">
+                    <div class="right-div">
+                        <input type="submit" value="Комент." />
+                    </div>
+                    <div class="left-div">
+                        @Html.TextBox("CommentString", null, new { @class = "text-box" })
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+}
+

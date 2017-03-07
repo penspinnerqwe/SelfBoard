@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SelfBoard.Domain.Entities.User>
+
+@foreach (var frend in Model)
+{
+    <div class="frend-infarmation">
+        <div>
+            @if (frend.AvatarId == null)
+            {
+                <img class="frend-avatar" src="~/Content/nophoto.gif" />
+            }
+            else
+            {
+                <img class="frend-avatar" src="@Url.Action("GetImage", "Image", new { frend.UserId })" />
+            }
+        </div>
+        <div>
+            <table>
+                <tr><td>Состояние : </td><td>@Html.Action("GetOnline", "Image", new { frend.UserId })</td></tr>
+                <tr><td>Имя/Фамилия : </td><td>@frend.FirstName</td><td>@frend.LastName</td></tr>
+            </table>
+        </div>
+        <div style="float: right; margin-top: 10px;">
+            @{ Html.RenderAction("FrendMenu", "Navigation", new { frend.UserId }); }
+        </div>
+    </div>
+}  
+

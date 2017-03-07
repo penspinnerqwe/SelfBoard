@@ -1,0 +1,23 @@
+﻿@model IEnumerable<SelfBoard.Domain.Entities.Photo>
+@{
+    ViewBag.Title = "SelectLoadedImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div class="news-info">
+        <div>
+            <img class="avatar" src="@Url.Action("GetNewsImage", "Image", new { item.PhotoId })" />
+        </div>
+        <div>
+            @using (Html.BeginForm("SetNewAvatar", "Person"))
+            {
+                @Html.Hidden("PhotoId", item.PhotoId)
+                <input type="submit" value="Установить">
+            }
+        </div>
+    </div>
+}
+     
+

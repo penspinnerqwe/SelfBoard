@@ -1,0 +1,27 @@
+﻿@model SelfBoard.WebUI.Models.RegistrationUser
+
+@{
+    Layout = "~/Views/Shared/_AuthUser.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div>Логин: </div>
+        <div>@Html.EditorFor(x => x.UserAuthData.Login)</div>
+        <div>Пароль: </div>
+        <div>@Html.EditorFor(x => x.UserAuthData.Password)</div>
+        <div>Фамилия: </div>
+        <div>@Html.EditorFor(x => x.UserInfarmation.LastName)</div>
+        <div>Имя: </div>
+        <div>@Html.EditorFor(x => x.UserInfarmation.FirstName)</div>
+        <div>Дата рождения: </div>
+        <div>@Html.EditorFor(x => x.UserInfarmation.BirthDay)</div>
+        <div> Пол: </div>
+        <div>@Html.DropDownListFor(x => x.StringSex, new SelectList(new[] { "Мужской", "Женский" }))</div>
+        <div>О себе: </div>
+        <div>@Html.EditorFor(x => x.UserInfarmation.AboutMe)</div>
+
+        <div><input class="actionButtons" type="submit" value="Регистрация" /></div>
+}
+   

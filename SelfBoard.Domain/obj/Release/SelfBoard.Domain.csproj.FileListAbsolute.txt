@@ -1,0 +1,10 @@
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Release\SelfBoard.Domain.dll.config
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Release\SelfBoard.Domain.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Release\SelfBoard.Domain.pdb
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Release\EntityFramework.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Release\EntityFramework.SqlServer.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Release\EntityFramework.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Release\EntityFramework.SqlServer.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\obj\Release\SelfBoard.Domain.csprojResolveAssemblyReference.cache
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\obj\Release\SelfBoard.Domain.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\obj\Release\SelfBoard.Domain.pdb

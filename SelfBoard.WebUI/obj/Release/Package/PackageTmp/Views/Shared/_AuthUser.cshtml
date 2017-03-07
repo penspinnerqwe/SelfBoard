@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/AuthStyles.css" />
+</head>
+<body>
+    <div class="background-heder"></div>
+    <div class="contener">
+        <div class="heder">
+            <div class="logodiv"><img src="~/Content/90logo.png" width="60px"></div>
+            <div>
+                <div>
+                    <a href="@Url.Action("Registration", "Auth")"><div class="action-button">Регистрация</div></a>
+                </div>
+                <div>
+                    <a href="@Url.Action("Login", "Person")"><div class="action-button">Вход</div></a>
+                </div>
+            </div>
+        </div>
+        <div class="logo-botton-background"></div>
+
+        <div class="content">
+            @RenderBody()
+        </div>
+
+    </div>
+</body>
+</html>

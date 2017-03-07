@@ -1,0 +1,16 @@
+﻿@model SelfBoard.Domain.Entities.AuthUser
+@{
+    Layout = "~/Views/Shared/_AuthUser.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div>Логин:</div>
+    <div>@Html.EditorFor(x => x.Login)</div>
+    <div>Пароль:</div>
+    <div>@Html.EditorFor(x => x.Password)</div>
+    <div><input class="actionButtons" type="submit" value="Войти" /></div>
+ }
+
+         
