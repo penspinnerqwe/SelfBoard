@@ -6,14 +6,7 @@
 
 <div class="info">
     <div>
-        @if (Model.AvatarId == null)
-        {
-            <img class="avatar" src="~/Content/nophoto.gif" />
-        }
-        else
-        {
-            <img class="avatar" src="@Url.Action("GetImage", "Image", new {Model.UserId })" />
-        }
+         <img class="avatar" src="@Url.Action("GetImage", "Image", new {Model.UserId })" />
     </div>
     <div>
         @Html.Action("RedactImageMenu", "Navigation", new { Model.UserId })
@@ -23,7 +16,7 @@
             @Html.HiddenFor(x => x.UserId)
             <table>
                 <tr>
-                    <td><input type="file" name="Image" /></td>
+                    <td><input id="image-file" type="file" name="Image" /></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="Загрузить фото" /></td>
@@ -33,4 +26,3 @@
         }
     </div>
 </div>
-

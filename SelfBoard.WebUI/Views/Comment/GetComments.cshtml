@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SelfBoard.WebUI.Models.ComentModel>
+﻿@model IEnumerable<SelfBoard.Domain.Entities.Comment>
 
 @foreach (var coment in Model)
 {
@@ -6,18 +6,10 @@
         <table>
             <tr>
                 <td>
-                    @if (coment.IsImgExist)
-                    {
-                        
-                        <img class="li-frend-avatar" src="@Url.Action("GetIconImage", "Image", new { UserId = coment.CommentObj.UserId})" />
-                    }
-                    else
-                    {
-                        <img class="li-frend-avatar" src="~/Content/nophoto.gif" />
-                    }                  
+                    <img class="li-frend-avatar" src="@Url.Action("GetIconImage", "Image", new { UserId = coment.UserId})" />     
                 </td>
                 <td>
-                    @coment.CommentObj.CommentString
+                    @coment.CommentString
                 </td>
             </tr>
         </table>

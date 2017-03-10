@@ -37,11 +37,7 @@ namespace SelfBoard.WebUI.Controllers
                 DBContext.AddAuthUser(obj.UserAuthData);
                 DBContext.SaveContextChanges();
 
-                return RedirectToRoute(new
-                {
-                    controller = "Person",
-                    action = "Login"
-                });
+                return RedirectToRoute(new { controller = "Person", action = "Login" });
             }
             else
                 return PartialView();

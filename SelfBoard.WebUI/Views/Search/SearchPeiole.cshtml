@@ -4,14 +4,7 @@
 {
     <div class="frend-infarmation">
         <div>
-            @if (frend.AvatarId == null)
-            {
-                <img class="frend-avatar" src="~/Content/nophoto.gif" />
-            }
-            else
-            {
                 <img class="frend-avatar" src="@Url.Action("GetImage", "Image", new { frend.UserId })" />
-            }
         </div>
         <div>
             <table>

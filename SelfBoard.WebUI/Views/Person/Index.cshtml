@@ -5,14 +5,7 @@
  
 <div class="info">
     <div>
-        @if (Model.AvatarId == null)
-        {
-            <img class="avatar" src="~/Content/nophoto.gif" />
-        }
-        else
-        {
-            <img class="avatar" src="@Url.Action("GetImage", "Image", new {Model.UserId })" />
-        }
+        <img class="avatar" src="@Url.Action("GetImage", "Image", new {Model.UserId })" />
         @{ Html.RenderAction("SelfMenu", "Navigation", new { Model.UserId }); }
     </div>
     <div >

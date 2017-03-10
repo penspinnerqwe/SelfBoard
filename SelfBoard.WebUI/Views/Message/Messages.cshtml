@@ -9,34 +9,20 @@
                                            UserId = message.MessageObj.ReceiverId == SelfBoard.WebUI.Models.MessageModel.CurrentUserId ?
                                            message.MessageObj.SenderId : message.MessageObj.ReceiverId
                                       })">
-    <div class="frend-infarmation">
-        <div>
-            @if (message.IsSenderImgExist)
-            {
-                <img class="frend-avatar" src="@Url.Action("GetIconImage", "Image", new { UserId = message.MessageObj.SenderId })" />
-            }
-            else
-            {
-                <img class="frend-avatar" src="~/Content/nophoto.gif" />
-            }
+        <div class="frend-infarmation">
+            <div>
+                    <img class="frend-avatar" src="@Url.Action("GetIconImage", "Image", new { UserId = message.MessageObj.SenderId })" />
+            </div>
+            <div>
+                <table>
+                    <tr><td class="ninja">Дата : </td><td>@message.MessageObj.SendDate</td></tr>
+                    <tr><td class="ninja">Сообщение : </td><td>@message.MessageObj.MessageString</td></tr>
+                </table>
+            </div>
+            <div style="float: right;">
+                    <img class="frend-avatar" src="@Url.Action("GetIconImage", "Image", new { UserId = message.MessageObj.ReceiverId })" />
+            </div>
         </div>
-        <div>
-            <table>
-                <tr><td class="ninja">Дата : </td><td>@message.MessageObj.SendDate</td></tr>
-                <tr><td class="ninja">Сообщение : </td><td>@message.MessageObj.MessageString</td></tr>
-            </table>
-        </div>
-        <div style="float: right;">          
-            @if (message.IsReceiverImgExist)
-            {
-                <img class="frend-avatar" src="@Url.Action("GetIconImage", "Image", new { UserId = message.MessageObj.ReceiverId })" />
-            }
-            else
-            {
-                <img class="frend-avatar" src="~/Content/nophoto.gif" />
-            }
-        </div>
-    </div>
 
     </a>
 }  

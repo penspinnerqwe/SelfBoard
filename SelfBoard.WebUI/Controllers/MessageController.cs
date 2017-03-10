@@ -25,11 +25,8 @@ namespace SelfBoard.WebUI.Controllers
             var MessageStrings = DBContext.Messages.Where(x => x.SenderId == UserId || x.ReceiverId == UserId)
                 .OrderByDescending(x => x.SendDate)
                 .ToList().Distinct(new MessageComparer())
-                .Select(z => new MessageModel() {  
-                    MessageObj = z,
-                    IsSenderImgExist = DBContext.Users.FirstOrDefault(x => x.UserId == z.SenderId).AvatarId == null ? false : true,
-                    IsReceiverImgExist = DBContext.Users.FirstOrDefault(x => x.UserId == z.ReceiverId).AvatarId == null ? false : true
-                });
+                .Select(z => new MessageModel() { MessageObj = z });
+
             return View(MessageStrings);
         }
 
@@ -43,11 +40,7 @@ namespace SelfBoard.WebUI.Controllers
                 .Where(x => (x.SenderId == UserId && x.ReceiverId == CookieUser) ||
                 (x.SenderId == CookieUser && x.ReceiverId == UserId))
                 .OrderByDescending(y => y.SendDate)
-                .Select(z => new MessageModel() {
-                    MessageObj = z,
-                    IsSenderImgExist = DBContext.Users.FirstOrDefault(x => x.UserId == z.SenderId).AvatarId == null ? false : true,
-                    IsReceiverImgExist = DBContext.Users.FirstOrDefault(x => x.UserId == z.ReceiverId).AvatarId == null ? false : true
-                });
+                .Select(z => new MessageModel() { MessageObj = z });
 
             return View(MessageStrings);
         }

@@ -6,7 +6,5 @@ namespace SelfBoard.WebUI.Models
     {
         public Message MessageObj { get; set; }
         public static int CurrentUserId { get; set; }
-        public bool IsSenderImgExist { get; set; }
-        public bool IsReceiverImgExist { get; set; }
     }
 }

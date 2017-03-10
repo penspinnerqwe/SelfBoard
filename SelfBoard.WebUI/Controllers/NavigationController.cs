@@ -197,7 +197,7 @@ namespace SelfBoard.WebUI.Controllers
                     CurrentId = CookieUser
                 },
                 new NavigationModel {
-                    String = "Исходящме заявки",
+                    String = "Исходящие заявки",
                     Action = "OutFrendsRequest",
                     Controller = "Frend",
                     CurrentId = CookieUser

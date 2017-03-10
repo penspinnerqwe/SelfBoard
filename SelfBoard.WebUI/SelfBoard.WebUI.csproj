@@ -168,7 +168,6 @@
     </Compile>
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Infrastructure\CustomHelpers.cs" />
-    <Compile Include="Models\ComentModel.cs" />
     <Compile Include="Models\LikeControllModel.cs" />
     <Compile Include="Models\MessageComparer.cs" />
     <Compile Include="Models\MessageModel.cs" />

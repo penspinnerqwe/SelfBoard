@@ -21,10 +21,7 @@ namespace SelfBoard.WebUI.Controllers
         {
             var result = DBContext.Comments
                 .Where(x => x.PhotoId == PhotoId)
-                .Select(x => new ComentModel() {
-                    CommentObj = x,
-                    IsImgExist = DBContext.Users.FirstOrDefault(y => y.UserId == x.UserId).AvatarId == null ? false : true
-                });
+                .Select(x => x);
 
             return PartialView(result);
         }
@@ -44,11 +41,7 @@ namespace SelfBoard.WebUI.Controllers
 
             var result = DBContext.Comments
                 .Where(x => x.PhotoId == PhotoId)
-                .Select(x => new ComentModel()
-                {
-                    CommentObj = x,
-                    IsImgExist = DBContext.Users.FirstOrDefault(y => y.UserId == x.UserId).AvatarId == null ? false : true
-                });
+                .Select(x =>  x);
 
             return PartialView("GetComments", result);
         }  

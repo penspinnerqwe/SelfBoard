@@ -11,6 +11,7 @@ namespace SelfBoard.WebUI.Controllers
 {
     public class ImageController : Controller
     {
+        private String DefaultImagePath = "~/Content/nophoto.gif";
         private ISelfBoardRepository DBContext;
         public ImageController(ISelfBoardRepository DBContext)
         {
@@ -22,40 +23,43 @@ namespace SelfBoard.WebUI.Controllers
             return View(DBContext.Users.FirstOrDefault(x => x.UserId == UserId));
         }
 
-        public FileContentResult GetImage(int UserId)
+        public FileResult GetImage(int UserId)
         {
             var Avatar = DBContext.Users
                 .Where(x => x.UserId == UserId)
-                .Select(x => x.Avatar);
+                .Select(x => x.Avatar)
+                .FirstOrDefault();
 
-            if (Avatar.Count() != 0)
-                return File(Avatar.First().ImageData, Avatar.First().ImageMimeType);
+            if (Avatar != null)
+                return File(Avatar.ImageData, Avatar.ImageMimeType);
             else
-                return null;
+                return new FilePathResult(DefaultImagePath, "image/jpeg");
         }
 
-        public FileContentResult GetNewsImage(int PhotoId)
+        public FileResult GetNewsImage(int PhotoId)
         {
             var Avatar = DBContext.Photos
                 .Where(x => x.PhotoId == PhotoId)
-                .Select(x => x);
+                .Select(x => x)
+                .FirstOrDefault();
 
             if (Avatar != null)
-                return File(Avatar.First().ImageData, Avatar.First().ImageMimeType);
+                return File(Avatar.ImageData, Avatar.ImageMimeType);
             else
-                return null;
+                return new FilePathResult(DefaultImagePath, "image/jpeg");
         }
 
-        public FileContentResult GetIconImage(int UserId)
+        public FileResult GetIconImage(int UserId)
         {
             var Avatar = DBContext.Users
-               .Where(x => x.UserId == UserId)
-               .Select(x => x.Avatar);
-
-            if (Avatar.Count() != 0)
-                return File(Avatar.First().RedactImage, Avatar.First().RedactImageMimeType);
+                .Where(x => x.UserId == UserId)
+                .Select(x => x.Avatar)
+                .FirstOrDefault();
+                  
+            if (Avatar != null)
+                return File(Avatar.RedactImage, Avatar.RedactImageMimeType);
             else
-                return null;
+                return new FilePathResult(DefaultImagePath, "image/jpeg");
         }
 
         [HttpPost]
