@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System;
+using System.Collections.Generic;
 
 namespace SelfBoard.Domain.Entities
 {
@@ -12,8 +14,8 @@ namespace SelfBoard.Domain.Entities
         public string CommentString { get; set; }
 
         [ForeignKey("User")]
-        public int? UserId { get; set; }
-        public User User { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
 
         [ForeignKey("Photo")]
         public int? PhotoId { get; set; }

@@ -1,40 +1,38 @@
-﻿using System;
+﻿using System.Web;
+using System.Web.Mvc;
+using SelfBoard.WebUI.Models;
+using SelfBoard.Domain.Concrete;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using SelfBoard.Domain.Abstract;
-using SelfBoard.WebUI.Models;
+using Microsoft.AspNet.Identity;
 
 namespace SelfBoard.WebUI.Controllers
 {
     public class NewsController : Controller
     {
-        private ISelfBoardRepository DBContext;
-        public NewsController(ISelfBoardRepository DBContext)
-        {
-            this.DBContext = DBContext;
-        }
+        private UnitOfWork DBContext = new UnitOfWork();
 
-        public PartialViewResult GetNews(int UserId)
+        public PartialViewResult GetNews(string UserId)
         {
             List<NewsModel> result = new List<NewsModel>();
 
-            if(UserId != 0)
-                result.AddRange(DBContext.Photos
+            if (UserId != null)
+                result.AddRange(DBContext.Photos.GetObjects()
                     .Where(x => x.UserId == UserId)
-                    .Select(x => new NewsModel() {
-                    NewsObj = x,
-                    Autor = x.User,
-                    Comments = DBContext.Comments.Where(y => y.PhotoId == x.PhotoId).Select(y => y),
-                    Likes = DBContext.Likes.Where(z => z.PhotoId == x.PhotoId).Select(z => z)
-                }));
+                    .Select(x => new NewsModel()
+                    {
+                        NewsObj = x,
+                        Autor = x.User,
+                        Comments = DBContext.Comments.GetObjects().Where(y => y.PhotoId == x.PhotoId).Select(y => y),
+                        Likes = DBContext.Likes.GetObjects().Where(z => z.PhotoId == x.PhotoId).Select(z => z)
+                    }));
             else
-                result.AddRange(DBContext.Photos.Select(x => new NewsModel(){
+                result.AddRange(DBContext.Photos.GetObjects().Select(x => new NewsModel()
+                {
                     NewsObj = x,
                     Autor = x.User,
-                    Comments = DBContext.Comments.Where(y => y.PhotoId == x.PhotoId).Select(y => y),
-                    Likes = DBContext.Likes.Where(z => z.PhotoId == x.PhotoId).Select(z => z)
+                    Comments = DBContext.Comments.GetObjects().Where(y => y.PhotoId == x.PhotoId).Select(y => y),
+                    Likes = DBContext.Likes.GetObjects().Where(z => z.PhotoId == x.PhotoId).Select(z => z)
                 }));
 
             return PartialView(result);
@@ -42,31 +40,31 @@ namespace SelfBoard.WebUI.Controllers
 
         public PartialViewResult GetDeleteNewsButton(int PhotoId)
         {
-            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
-            ViewBag.CurrentUserId = Convert.ToInt32(cookieReq["UserId"]);
-            return PartialView(DBContext.Photos.FirstOrDefault(x => x.PhotoId == PhotoId));
+            ViewBag.CurrentUserId = User.Identity.GetUserId();
+            return PartialView(DBContext.Photos.GetObjectByID(PhotoId));
         }
 
         public PartialViewResult DeleteNews(int PhotoId)
         {
-            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
-            int CurrentUserId = Convert.ToInt32(cookieReq["UserId"]);
+            string CurrentUserId = User.Identity.GetUserId();
 
-            if (DBContext.Users.FirstOrDefault(x => x.UserId == CurrentUserId && x.AvatarId == PhotoId) != null)
-                DBContext.Users.FirstOrDefault(x => x.UserId == CurrentUserId && x.AvatarId == PhotoId).AvatarId = null;
-            DBContext.SaveContextChanges();
+            var tempUser = DBContext.ApplicationUsers.GetObjects()
+                .FirstOrDefault(x => x.Id == CurrentUserId && x.AvatarId == PhotoId);
+            if (tempUser != null)
+                tempUser.AvatarId = null;
 
-            var deleteLikesList = DBContext.Likes.Where(x => x.PhotoId == PhotoId).Select(x => x);
+            var deleteLikesList = DBContext.Likes.GetObjects()
+                .Where(x => x.PhotoId == PhotoId).Select(x => x);
             foreach (var deleteItem in deleteLikesList)
-                DBContext.DeleteLike(deleteItem);
+                DBContext.Likes.DeleteObject(deleteItem.LikeId);
 
-            var deleteCommentList = DBContext.Comments.Where(x => x.PhotoId == PhotoId).Select(x => x);
+            var deleteCommentList = DBContext.Comments.GetObjects()
+                .Where(x => x.PhotoId == PhotoId).Select(x => x);
             foreach (var deleteItem in deleteCommentList)
-                DBContext.DeleteComment(deleteItem);
-            DBContext.SaveContextChanges();
+                DBContext.Comments.DeleteObject(deleteItem.CommentId);
 
-            DBContext.DeletePhoto(DBContext.Photos.FirstOrDefault(x => x.PhotoId == PhotoId));
-            DBContext.SaveContextChanges();
+            DBContext.Photos.DeleteObject(DBContext.Photos.GetObjectByID(PhotoId).PhotoId);
+            DBContext.Save();
 
             return PartialView();
         }

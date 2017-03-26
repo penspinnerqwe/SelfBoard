@@ -3,32 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SelfBoard.Domain.Abstract;
 using SelfBoard.Domain.Entities;
 using System.Drawing;
+using SelfBoard.Domain.Concrete;
+using Microsoft.AspNet.Identity;
 
 namespace SelfBoard.WebUI.Controllers
 {
     public class ImageController : Controller
     {
         private String DefaultImagePath = "~/Content/nophoto.gif";
-        private ISelfBoardRepository DBContext;
-        public ImageController(ISelfBoardRepository DBContext)
+        private UnitOfWork DBContext = new UnitOfWork();
+
+        public ActionResult RedactImage(string UserId)
         {
-            this.DBContext = DBContext;
+            return View(DBContext.ApplicationUsers.GetObjectByID(UserId));
         }
 
-        public ActionResult RedactImage(int UserId)
+        public FileResult GetImage(string UserId)
         {
-            return View(DBContext.Users.FirstOrDefault(x => x.UserId == UserId));
-        }
-
-        public FileResult GetImage(int UserId)
-        {
-            var Avatar = DBContext.Users
-                .Where(x => x.UserId == UserId)
-                .Select(x => x.Avatar)
-                .FirstOrDefault();
+            var Avatar = DBContext.Photos.GetUsersAvatar(UserId);
 
             if (Avatar != null)
                 return File(Avatar.ImageData, Avatar.ImageMimeType);
@@ -38,10 +32,7 @@ namespace SelfBoard.WebUI.Controllers
 
         public FileResult GetNewsImage(int PhotoId)
         {
-            var Avatar = DBContext.Photos
-                .Where(x => x.PhotoId == PhotoId)
-                .Select(x => x)
-                .FirstOrDefault();
+            var Avatar = DBContext.Photos.GetObjectByID(PhotoId);
 
             if (Avatar != null)
                 return File(Avatar.ImageData, Avatar.ImageMimeType);
@@ -49,13 +40,10 @@ namespace SelfBoard.WebUI.Controllers
                 return new FilePathResult(DefaultImagePath, "image/jpeg");
         }
 
-        public FileResult GetIconImage(int UserId)
+        public FileResult GetIconImage(string UserId)
         {
-            var Avatar = DBContext.Users
-                .Where(x => x.UserId == UserId)
-                .Select(x => x.Avatar)
-                .FirstOrDefault();
-                  
+            var Avatar = DBContext.Photos.GetUsersAvatar(UserId);
+
             if (Avatar != null)
                 return File(Avatar.RedactImage, Avatar.RedactImageMimeType);
             else
@@ -63,9 +51,9 @@ namespace SelfBoard.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult PostImsge(int UserId, HttpPostedFileBase image)
+        public ActionResult PostImsge(string UserId, HttpPostedFileBase image)
         {
-            var User = DBContext.Users.FirstOrDefault(x => x.UserId == UserId);
+            var User = DBContext.ApplicationUsers.GetObjectByID(UserId);
             Photo newPhoto = new Photo();
 
             if (image != null)
@@ -77,38 +65,36 @@ namespace SelfBoard.WebUI.Controllers
                 newPhoto.RedactImageMimeType = newPhoto.ImageMimeType;
                 newPhoto.RedactImage = newPhoto.ImageData;
 
-                DBContext.AddPhoto(newPhoto);
-                DBContext.SaveContextChanges();
-
+                DBContext.Photos.InsertObject(newPhoto);
                 User.AvatarId = newPhoto.PhotoId;
                 newPhoto.UserId = UserId;
-                DBContext.SaveContextChanges();
+                DBContext.Save();
             }
 
             return RedirectToRoute(new { controller = "Person", action = "Home", UserId = UserId });
         }
 
-        public String GetSex(int UserId)
+        public String GetSex(string UserId)
         {
-            var User = DBContext.Users.FirstOrDefault(x => x.UserId == UserId);
+            var User = DBContext.ApplicationUsers.GetObjectByID(UserId);
             if (User != null)
                 return User.Sex == 0 ? "Мужской" : "Женский";
             else
                 return null;
         }
 
-        public String GetOnline(int UserId)
+        public String GetOnline(string UserId)
         {
-            var User = DBContext.Users.FirstOrDefault(x => x.UserId == UserId);
+            var User = DBContext.ApplicationUsers.GetObjectByID(UserId);
             if (User != null)
                 return User.Online == 0 ? "Не в сети" : "В сети";
             else
                 return null;
         }
 
-        public Int32 GetAge(int UserId)
+        public Int32 GetAge(string UserId)
         {
-            var User = DBContext.Users.FirstOrDefault(x => x.UserId == UserId);
+            var User = DBContext.ApplicationUsers.GetObjectByID(UserId);
             if (User != null)
             {
                 DateTime dateNow = DateTime.Now;
@@ -125,17 +111,16 @@ namespace SelfBoard.WebUI.Controllers
         [HttpPost]
         public RedirectToRouteResult CutImage(FormCollection form)
         {
-            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
-            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
-
+            string CookieUser = User.Identity.GetUserId();
             try
             {
                 var x = Convert.ToInt32(form["X"]);
                 var y = Convert.ToInt32(form["Y"]);
                 var w = Convert.ToInt32(form["W"]);
                 var h = Convert.ToInt32(form["H"]);
-                var redactPhoto = DBContext.Photos.FirstOrDefault(param => param.PhotoId ==
-                DBContext.Users.FirstOrDefault(b => b.UserId == CookieUser).AvatarId);
+                var avatarId = DBContext.ApplicationUsers.GetObjectByID(CookieUser).AvatarId;
+
+                var redactPhoto = DBContext.Photos.GetObjectByID((int)avatarId);
 
                 Image oImage = (Bitmap)((new ImageConverter()).ConvertFrom(redactPhoto.ImageData));
 
@@ -143,11 +128,9 @@ namespace SelfBoard.WebUI.Controllers
                 var g = Graphics.FromImage(bmp);
                 g.DrawImage(oImage, new Rectangle(0, 0, w, h), new Rectangle(x, y, w, h), GraphicsUnit.Pixel);
 
-                DBContext.Photos.FirstOrDefault(param => param.PhotoId ==
-                DBContext.Users.FirstOrDefault(b => b.UserId == CookieUser).AvatarId)
+                DBContext.Photos.GetObjectByID((int)avatarId)
                     .RedactImage = (byte[])((new ImageConverter()).ConvertTo(bmp, typeof(byte[])));
-
-                DBContext.SaveContextChanges();
+                DBContext.Save();
             }
             catch
             {
@@ -169,15 +152,15 @@ namespace SelfBoard.WebUI.Controllers
             });
         }
 
-        public ActionResult CutImageRedactor(int UserId)
+        public ActionResult CutImageRedactor(string UserId)
         {
-            return View(DBContext.Photos.FirstOrDefault(x => x.PhotoId == 
-            DBContext.Users.FirstOrDefault(y => y.UserId == UserId).AvatarId));
+            var avatarId = DBContext.ApplicationUsers.GetObjectByID(UserId).AvatarId;
+            return View(DBContext.Photos.GetObjectByID((int)avatarId));
         }
 
-        public ActionResult SelectLoadedImage(int UserId)
+        public ActionResult SelectLoadedImage(string UserId)
         {
-            return View(DBContext.Photos.Where(x => x.UserId == UserId).Select(x => x));
+            return View(DBContext.Photos.GetObjects().Where(x => x.UserId == UserId).Select(x => x));
         }
     }
 }
