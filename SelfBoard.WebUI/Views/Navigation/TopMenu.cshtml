@@ -3,15 +3,14 @@
 @foreach (var str in Model)
 {
     <div>
-         @Html.RouteLink(str.String, new
-         {
-             controller = str.Controller,
-             action = str.Action,
-             UserId = str.CurrentId
-         },
-         new
-         {
-             @class = "action-button"
-         })
+      @Html.RouteLink(str.String, new
+      {
+         controller = str.Controller,
+         action = str.Action,
+         UserId = str.CurrentId
+      },
+      new {
+          @class = "action-button"
+      })
     </div>
 }

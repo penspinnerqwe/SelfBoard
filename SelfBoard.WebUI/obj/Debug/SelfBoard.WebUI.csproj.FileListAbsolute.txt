@@ -1,77 +1,118 @@
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\ApplicationInsights.config
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\csc.exe
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CSharp.Core.targets
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.VisualBasic.Core.targets
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\System.Collections.Immutable.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\System.Reflection.Metadata.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\vbc.exe
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\VBCSCompiler.exe
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\roslyn\VBCSCompiler.exe.config
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.WebUI.dll.config
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.WebUI.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.WebUI.pdb
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.SqlServer.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.Agent.Intercept.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.DependencyCollector.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.PerfCounterCollector.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.ServerTelemetryChannel.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.Web.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.WindowsServer.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.ApplicationInsights.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AspNet.Identity.Core.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AspNet.Identity.Owin.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Owin.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Owin.Host.SystemWeb.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Owin.Security.Cookies.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Owin.Security.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Owin.Security.OAuth.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Web.Infrastructure.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Newtonsoft.Json.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Owin.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.Domain.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Helpers.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Mvc.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Razor.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Deployment.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Razor.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.Domain.pdb
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.SqlServer.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.DependencyCollector.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.ServerTelemetryChannel.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.Web.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.WindowsServer.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.ApplicationInsights.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AspNet.Identity.Core.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AspNet.Identity.Owin.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Owin.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Owin.Host.SystemWeb.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Owin.Security.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Owin.Security.Cookies.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Owin.Security.OAuth.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\Newtonsoft.Json.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Razor.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Deployment.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Razor.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Helpers.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\System.Web.Mvc.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Razor.resources.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Webpages.resources.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Webpages.Deployment.resources.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Webpages.Razor.resources.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Helpers.resources.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Mvc.resources.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\obj\Debug\SelfBoard.WebUI.csprojResolveAssemblyReference.cache
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\obj\Debug\SelfBoard.WebUI.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.WebUI\obj\Debug\SelfBoard.WebUI.pdb
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\ApplicationInsights.config
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\csc.exe
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\System.Collections.Immutable.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\System.Reflection.Metadata.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\vbc.exe
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\VBCSCompiler.exe
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\roslyn\VBCSCompiler.exe.config
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.WebUI.dll.config
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.WebUI.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.WebUI.pdb
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.Agent.Intercept.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.DependencyCollector.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.Web.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.WindowsServer.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.ApplicationInsights.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Web.Infrastructure.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Helpers.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Mvc.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Razor.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Deployment.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Razor.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.DependencyCollector.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.Web.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.WindowsServer.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.ApplicationInsights.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Razor.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Deployment.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Razor.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Helpers.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\System.Web.Mvc.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Razor.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Webpages.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Webpages.Deployment.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Webpages.Razor.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Helpers.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Mvc.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\obj\Debug\SelfBoard.WebUI.csprojResolveAssemblyReference.cache
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\obj\Debug\SelfBoard.WebUI.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\obj\Debug\SelfBoard.WebUI.pdb
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.Domain.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.Domain.pdb
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\ApplicationInsights.config
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\csc.exe
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\System.Collections.Immutable.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\System.Reflection.Metadata.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\vbc.exe
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\VBCSCompiler.exe
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\roslyn\VBCSCompiler.exe.config
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.WebUI.dll.config
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.WebUI.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.WebUI.pdb
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.Agent.Intercept.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.DependencyCollector.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.Web.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.WindowsServer.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.ApplicationInsights.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.Web.Infrastructure.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.Domain.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Helpers.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Mvc.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Razor.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Deployment.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Razor.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\SelfBoard.Domain.pdb
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.DependencyCollector.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.Web.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.AI.WindowsServer.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.ApplicationInsights.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Razor.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Deployment.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Webpages.Razor.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Helpers.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\System.Web.Mvc.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Razor.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Webpages.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Webpages.Deployment.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Webpages.Razor.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Helpers.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\ru\System.Web.Mvc.resources.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\obj\Debug\SelfBoard.WebUI.csprojResolveAssemblyReference.cache
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\obj\Debug\SelfBoard.WebUI.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\obj\Debug\SelfBoard.WebUI.pdb
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.SqlServer.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.SqlServer.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.SqlServer.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\EntityFramework.SqlServer.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Ninject.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.WebUI\bin\Ninject.xml

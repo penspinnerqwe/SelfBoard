@@ -1,29 +1,20 @@
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\SelfBoard.Domain.dll.config
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\SelfBoard.Domain.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\SelfBoard.Domain.pdb
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.SqlServer.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.Owin.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.Owin.Security.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.Owin.Security.OAuth.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Newtonsoft.Json.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Owin.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.SqlServer.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.Owin.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.Owin.Security.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Microsoft.Owin.Security.OAuth.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\bin\Debug\Newtonsoft.Json.xml
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\obj\Debug\SelfBoard.Domain.csprojResolveAssemblyReference.cache
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\obj\Debug\SelfBoard.Domain.dll
-E:\ЛАБЫ\SelfBoard\SelfBoard.Domain\obj\Debug\SelfBoard.Domain.pdb
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Debug\SelfBoard.Domain.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Debug\SelfBoard.Domain.pdb
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\obj\Debug\SelfBoard.Domain.csprojResolveAssemblyReference.cache
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\obj\Debug\SelfBoard.Domain.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\obj\Debug\SelfBoard.Domain.pdb
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.Domain\obj\Debug\SelfBoard.Domain.csprojResolveAssemblyReference.cache
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.Domain\obj\Debug\SelfBoard.Domain.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.Domain\obj\Debug\SelfBoard.Domain.pdb
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.Domain\bin\Debug\SelfBoard.Domain.dll.config
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.Domain\bin\Debug\SelfBoard.Domain.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.Domain\bin\Debug\SelfBoard.Domain.pdb
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.SqlServer.dll
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.xml
+E:\ЛАБЫ\ASP_NET_C#\На случай краша\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.SqlServer.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Debug\SelfBoard.Domain.dll.config
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.SqlServer.dll
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.xml
+E:\ЛАБЫ\ASP_NET_C#\SelfBoard\SelfBoard.Domain\bin\Debug\EntityFramework.SqlServer.xml

@@ -1,21 +1,25 @@
-﻿using Microsoft.AspNet.Identity;
-using SelfBoard.Domain.Concrete;
-using SelfBoard.WebUI.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SelfBoard.WebUI.Models;
+using SelfBoard.Domain.Abstract;
 
 namespace SelfBoard.WebUI.Controllers
 {
     public class NavigationController : Controller
     {
-        private UnitOfWork DBContext = new UnitOfWork();
+        private ISelfBoardRepository DBContext;
+        public NavigationController(ISelfBoardRepository DBContext)
+        {
+            this.DBContext = DBContext;
+        }
 
         public PartialViewResult Menu(string selectedItem = null)
         {
-            string CookieUser = User.Identity.GetUserId();
+            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
+            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
 
             ViewBag.SelectedCategory = selectedItem;
             List<NavigationModel> ViewArgs = new List<NavigationModel>
@@ -54,7 +58,8 @@ namespace SelfBoard.WebUI.Controllers
 
         public PartialViewResult TopMenu(string selectedItem = null)
         {
-            string CookieUser = User.Identity.GetUserId();
+            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
+            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
 
             ViewBag.SelectedCategory = selectedItem;
             List<NavigationModel> ViewArgs = new List<NavigationModel>
@@ -75,15 +80,15 @@ namespace SelfBoard.WebUI.Controllers
             return PartialView(ViewArgs);
         }
 
-        public PartialViewResult SelfMenu(string UserId)
+        public PartialViewResult SelfMenu(int UserId)
         {
             List<NavigationModel> ViewArgs = new List<NavigationModel>();
 
-            string CookieUser = User.Identity.GetUserId();
+            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
+            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
 
             if (CookieUser == UserId)
-                ViewArgs.Add(new NavigationModel()
-                {
+                ViewArgs.Add(new NavigationModel() {
                     String = "Редактор",
                     Action = "RedactImage",
                     Controller = "Image",
@@ -91,7 +96,7 @@ namespace SelfBoard.WebUI.Controllers
                 });
             else
             {
-                var tempFrednItem = DBContext.Frends.GetObjects()
+                var tempFrednItem = DBContext.Frends
                     .FirstOrDefault(x => (x.ReceiverId == UserId && x.SenderId == CookieUser) ||
                     (x.SenderId == UserId && x.ReceiverId == CookieUser));
 
@@ -99,9 +104,8 @@ namespace SelfBoard.WebUI.Controllers
                     switch (tempFrednItem.State)
                     {
                         case 0:
-                            if (tempFrednItem.SenderId == CookieUser)
-                                ViewArgs.Add(new NavigationModel()
-                                {
+                            if(tempFrednItem.SenderId == CookieUser)
+                                ViewArgs.Add(new NavigationModel() {
                                     String = "Отменить заявку в друзья",
                                     Action = "DeleteRequest",
                                     Controller = "Frend",
@@ -115,23 +119,19 @@ namespace SelfBoard.WebUI.Controllers
                                     Controller = "Frend",
                                     CurrentId = UserId
                                 });
-                            break;
-                        case 1:
-                            ViewArgs.Add(new NavigationModel()
-                            {
+                        break;
+                        case 1: ViewArgs.Add(new NavigationModel() {
                                 String = "Убрать из друзей",
                                 Action = "DeleteFrend",
                                 Controller = "Frend",
                                 CurrentId = UserId
-                            }); break;
-                        case 2:
-                            ViewArgs.Add(new NavigationModel()
-                            {
+                        }); break;
+                        case 2: ViewArgs.Add(new NavigationModel() {
                                 String = "Вы в чёрном списке",
                                 Action = "Frends",
                                 Controller = "Frend",
                                 CurrentId = UserId
-                            }); break;
+                        }); break;
                     }
                 else
                     ViewArgs.Add(new NavigationModel()
@@ -159,10 +159,10 @@ namespace SelfBoard.WebUI.Controllers
                 CurrentId = UserId
             });
 
-            return PartialView("TopMenu", ViewArgs);
+            return PartialView("TopMenu",ViewArgs);
         }
 
-        public PartialViewResult FrendMenu(string UserId, string selectedItem = null)
+        public PartialViewResult FrendMenu(int UserId,string selectedItem = null)
         {
             ViewBag.SelectedCategory = selectedItem;
             List<NavigationModel> ViewArgs = new List<NavigationModel>
@@ -180,12 +180,13 @@ namespace SelfBoard.WebUI.Controllers
                     CurrentId = UserId
                 }
             };
-            return PartialView("TopMenu", ViewArgs);
+            return PartialView("TopMenu",ViewArgs);
         }
 
         public PartialViewResult FrendsRequestMenu()
         {
-            string CookieUser = User.Identity.GetUserId();
+            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
+            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
 
             List<NavigationModel> ViewArgs = new List<NavigationModel>
             {
@@ -211,9 +212,10 @@ namespace SelfBoard.WebUI.Controllers
             return PartialView("TopMenu", ViewArgs);
         }
 
-        public PartialViewResult RedactImageMenu(string UserId)
+        public PartialViewResult RedactImageMenu(int UserId)
         {
-            string CookieUser = User.Identity.GetUserId();
+            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
+            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
 
             List<NavigationModel> ViewArgs = new List<NavigationModel>
             {

@@ -13,11 +13,11 @@ namespace SelfBoard.Domain.Entities
         public int State { get; set; }
 
         [ForeignKey("Receiver")]
-        public string ReceiverId { get; set; }
-        public ApplicationUser Receiver { get; set; }
+        public int? ReceiverId { get; set; }
+        public User Receiver { get; set; }
 
         [ForeignKey("Sender")]
-        public string SenderId { get; set; }
-        public ApplicationUser Sender { get; set; }
+        public int? SenderId { get; set; }
+        public User Sender { get; set; }
     }
 }

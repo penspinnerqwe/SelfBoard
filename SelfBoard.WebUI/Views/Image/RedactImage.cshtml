@@ -1,4 +1,4 @@
-﻿@model SelfBoard.Domain.Entities.ApplicationUser
+﻿@model SelfBoard.Domain.Entities.User
 @{
     ViewBag.Title = "RedactImage";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,14 +6,14 @@
 
 <div class="info">
     <div>
-        <img class="avatar" src="@Url.Action("GetImage", "Image", new { UserId = Model.Id })" />
+         <img class="avatar" src="@Url.Action("GetImage", "Image", new {Model.UserId })" />
     </div>
     <div>
-        @Html.Action("RedactImageMenu", "Navigation", new { UserId = Model.Id })
+        @Html.Action("RedactImageMenu", "Navigation", new { Model.UserId })
 
         @using (Html.BeginForm("PostImsge", "Image", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
-            @Html.Hidden("UserId", Model.Id)
+            @Html.HiddenFor(x => x.UserId)
             <table>
                 <tr>
                     <td><input id="image-file" type="file" name="Image" /></td>

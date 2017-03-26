@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SelfBoard.Domain.Abstract;
 using SelfBoard.Domain.Entities;
 using SelfBoard.WebUI.Models;
-using SelfBoard.Domain.Concrete;
-using SelfBoard.WebUI.Infrastructure;
-using Microsoft.AspNet.Identity;
 
 namespace SelfBoard.WebUI.Controllers
 {
     public class MessageController : Controller
     {
-        private UnitOfWork DBContext = new UnitOfWork();
+        private ISelfBoardRepository DBContext;
+        public MessageController(ISelfBoardRepository DBContext)
+        {
+            this.DBContext = DBContext;
+        }
 
-        public ActionResult Messages(string UserId, string SelectedCategory)
+        public ActionResult Messages(int UserId ,string SelectedCategory )
         {
             ViewBag.SelectedCategory = SelectedCategory;
 
             MessageModel.CurrentUserId = UserId;
-            var MessageStrings = DBContext.Messages.GetObjects()
-                .Where(x => x.SenderId == UserId || x.ReceiverId == UserId)
+            var MessageStrings = DBContext.Messages.Where(x => x.SenderId == UserId || x.ReceiverId == UserId)
                 .OrderByDescending(x => x.SendDate)
                 .ToList().Distinct(new MessageComparer())
                 .Select(z => new MessageModel() { MessageObj = z });
@@ -29,12 +30,13 @@ namespace SelfBoard.WebUI.Controllers
             return View(MessageStrings);
         }
 
-        public ActionResult ConcreteMessages(string UserId)
+        public ActionResult ConcreteMessages(int UserId)
         {
-            string CookieUser = User.Identity.GetUserId();
+            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
+            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
 
             MessageModel.CurrentUserId = UserId;
-            var MessageStrings = DBContext.Messages.GetObjects()
+            var MessageStrings = DBContext.Messages
                 .Where(x => (x.SenderId == UserId && x.ReceiverId == CookieUser) ||
                 (x.SenderId == CookieUser && x.ReceiverId == UserId))
                 .OrderByDescending(y => y.SendDate)
@@ -44,21 +46,23 @@ namespace SelfBoard.WebUI.Controllers
         }
 
         [HttpPost]
-        public RedirectToRouteResult SendMessage(string CurrentUserId, string MessageString)
+        public RedirectToRouteResult SendMessage(int CurrentUserId, string MessageString)
         {
             try
             {
+                HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
+
                 Message NewMessageObj = new Message()
                 {
                     MessageString = MessageString,
                     State = 0,
                     SendDate = DateTime.Now,
-                    SenderId = User.Identity.GetUserId(),
+                    SenderId = Convert.ToInt32(cookieReq["UserId"]),
                     ReceiverId = CurrentUserId
                 };
 
-                DBContext.Messages.InsertObject(NewMessageObj);
-                DBContext.Save();
+                DBContext.AddMessage(NewMessageObj);
+                DBContext.SaveContextChanges();
             }
             catch
             {

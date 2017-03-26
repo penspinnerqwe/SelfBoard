@@ -11,8 +11,8 @@ namespace SelfBoard.WebUI.Models
         public Photo NewsObj { get; set; }
         public IEnumerable<Comment> Comments { get; set; }
         public IEnumerable<Like> Likes { get; set; }
-        public ApplicationUser Autor { get; set; }
-        public static string CurrentUserId { get; set; }
+        public User Autor { get; set; }
+        public static int CurrentUserId { get; set; }
 
         public NewsModel()
         {

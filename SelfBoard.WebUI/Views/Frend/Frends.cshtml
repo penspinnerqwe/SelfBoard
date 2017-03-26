@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SelfBoard.Domain.Entities.ApplicationUser>
+﻿@model IEnumerable<SelfBoard.Domain.Entities.User>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -11,16 +11,17 @@
 {
     <div class="frend-infarmation">
         <div>
-            <img class="frend-avatar" src="@Url.Action("GetIconImage", "Image", new { UserId = frend.Id })" />
+            <img class="frend-avatar" src="@Url.Action("GetIconImage", "Image", new { frend.UserId })" />
         </div>
         <div>
             <table>
-                <tr><td class="ninja">Состояние : </td><td>@Html.Action("GetOnline", "Image", new { UserId = frend.Id })</td></tr>
+                <tr><td class="ninja">Состояние : </td><td>@Html.Action("GetOnline", "Image", new { frend.UserId })</td></tr>
                 <tr><td class="ninja">Имя/Фамилия : </td><td>@frend.FirstName</td><td>@frend.LastName</td></tr>
             </table>
         </div>
         <div style="float: right;">
-            @{ Html.RenderAction("FrendMenu", "Navigation", new { UserId = frend.Id }); }
+            @{ Html.RenderAction("FrendMenu", "Navigation", new { frend.UserId }); }
         </div>
     </div>
-                }  
+}  
+ 

@@ -5,6 +5,6 @@ namespace SelfBoard.WebUI.Models
     public class MessageModel
     {
         public Message MessageObj { get; set; }
-        public static string CurrentUserId { get; set; }
+        public static int CurrentUserId { get; set; }
     }
 }

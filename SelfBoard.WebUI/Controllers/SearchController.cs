@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SelfBoard.Domain.Abstract;
 using System.Text.RegularExpressions;
 using SelfBoard.Domain.Entities;
-using SelfBoard.Domain.Concrete;
 
 namespace SelfBoard.WebUI.Controllers
 {
     public class SearchController : Controller
     {
-        private UnitOfWork DBContext = new UnitOfWork();
+        private ISelfBoardRepository DBContext;
+        public SearchController(ISelfBoardRepository DBContext)
+        {
+            this.DBContext = DBContext;
+        }
 
         public PartialViewResult SearchPeiole(string arg)
         {
@@ -22,14 +26,14 @@ namespace SelfBoard.WebUI.Controllers
                 LastFirstName.Add(SearchParam.Value);
                 SearchParam = SearchParam.NextMatch();
             }
-
-            List<ApplicationUser> result = new List<ApplicationUser>();
+          
+            List<User> result = new List<User>();
             if (LastFirstName.Count >= 2)
             {
                 string firstParam = LastFirstName[0].ToLower();
                 string lastParam = LastFirstName[1].ToLower();
 
-                result.AddRange(DBContext.ApplicationUsers.GetObjects()
+                result.AddRange(DBContext.Users
                     .Where(x => (x.FirstName.ToLower() == firstParam && x.LastName.ToLower() == lastParam) ||
                     (x.FirstName.ToLower() == lastParam && x.LastName.ToLower() == firstParam))
                     .Select(x => x));
@@ -38,7 +42,7 @@ namespace SelfBoard.WebUI.Controllers
             {
                 string firstParam = LastFirstName[0].ToLower();
 
-                result.AddRange(DBContext.ApplicationUsers.GetObjects()
+                result.AddRange(DBContext.Users
                     .Where(x => x.FirstName.ToLower() == firstParam || x.LastName.ToLower() == firstParam)
                     .Select(x => x));
             }
