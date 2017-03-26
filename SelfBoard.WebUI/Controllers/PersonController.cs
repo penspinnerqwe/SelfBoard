@@ -1,87 +1,63 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using SelfBoard.Domain.Abstract;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using SelfBoard.Domain.Concrete;
+using SelfBoard.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
-using SelfBoard.Domain.Entities;
+using System.Web.Mvc;
 
 namespace SelfBoard.WebUI.Controllers
 {
     public class PersonController : Controller
     {
-        private ISelfBoardRepository DBContext;
-        public PersonController(ISelfBoardRepository DBContext)
-        {  
-            this.DBContext = DBContext;
-        }
+        private UnitOfWork DBContext = new UnitOfWork();
 
-        [HttpPost]
-        public ActionResult Login(AuthUser obj)
+        private IAuthenticationManager AuthenticationManager
         {
-            var AuthResult = DBContext.AuthUsers.FirstOrDefault(x => x.Login == obj.Login);
-
-            if (AuthResult != null && AuthResult.Password != obj.Password)
-                ModelState.AddModelError("", "Неверный пароль");
-
-            if (AuthResult != null && AuthResult.Password == obj.Password)
-                return RedirectToRoute(new
-                {
-                    controller = "Person",
-                    action = "Index",
-                    UserId = AuthResult.UserId,
-                    SelectedCategory = "Моя страница"
-                });
-            else             
-                return View();
-
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
         }
-
-        public ActionResult Login()
+        private ApplicationUserManager UserManager
         {
-            return View();
+            get
+            {
+                return HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
         }
 
-        public ActionResult Index(int UserId, string SelectedCategory)
-        {
-            HttpCookie cookie = new HttpCookie("SelfBoardCookie");
-            cookie["UserId"] = UserId.ToString();
-            Response.Cookies.Add(cookie);
-
-            DBContext.Users.FirstOrDefault(x => x.UserId == UserId).Online = 1;
-            DBContext.SaveContextChanges();
-
-            ViewBag.SelectedCategory = SelectedCategory;
-            return View(DBContext.Users.FirstOrDefault(x => x.UserId == UserId));
-        }
-
-        public ActionResult Home(int UserId, string SelectedCategory)
+        public ActionResult Home(string UserId, string SelectedCategory)
         {
             ViewBag.SelectedCategory = SelectedCategory;
-            return View("Index", DBContext.Users.FirstOrDefault(x => x.UserId == UserId));
+            if (UserId == null)
+            { 
+                UserId = User.Identity.GetUserId();
+                DBContext.ApplicationUsers.GetObjectByID(UserId).Online = 1;
+                DBContext.Save();
+            }
+         
+            return View(DBContext.ApplicationUsers.GetObjectByID(UserId));
         }
 
         public ActionResult SetNewAvatar(int PhotoId)
         {
-            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
-            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
-
-            DBContext.Users.FirstOrDefault(x => x.UserId == CookieUser).AvatarId = PhotoId;
-            DBContext.SaveContextChanges();
-
-            return View("Index", DBContext.Users.FirstOrDefault(x => x.UserId == CookieUser));
+            string CookieUser = User.Identity.GetUserId();
+            DBContext.ApplicationUsers.GetObjectByID(CookieUser).AvatarId = PhotoId;
+            DBContext.Save();
+            return View("Home", DBContext.ApplicationUsers.GetObjectByID(CookieUser));
         }
 
-        public RedirectToRouteResult SignOut(int UserId)
+        public RedirectToRouteResult SignOut(string UserId)
         {
-            DBContext.Users.FirstOrDefault(x => x.UserId == UserId).Online = 0;
-            DBContext.SaveContextChanges();
+            DBContext.ApplicationUsers.GetObjectByID(UserId).Online = 0;
+            DBContext.Save();
 
-            HttpCookie cookie = new HttpCookie("SelfBoardCookie");
-            cookie.Expires = DateTime.Now.AddDays(-1);
-            Response.Cookies.Add(cookie);
-
-            return RedirectToRoute(new { controller = "Person", action = "Login" });
+            AuthenticationManager.SignOut();
+            return RedirectToRoute(new { controller = "Auth", action = "Login" });
         }
     }
 }

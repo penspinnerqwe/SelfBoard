@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace SelfBoard.Domain.Entities
 {
     public class Message
@@ -18,11 +17,11 @@ namespace SelfBoard.Domain.Entities
         public int State { get; set; }
 
         [ForeignKey("Receiver")]
-        public int? ReceiverId { get; set; }
-        public User Receiver { get; set; }
+        public string ReceiverId { get; set; }
+        public ApplicationUser Receiver { get; set; }
 
         [ForeignKey("Sender")]
-        public int? SenderId { get; set; }
-        public User Sender { get; set; }
+        public string SenderId { get; set; }
+        public ApplicationUser Sender { get; set; }
     }
 }

@@ -3,7 +3,8 @@
 @foreach (var str in Model)
 {
     <div>
-        @Html.RouteLink( str.String, new {
+       @Html.RouteLink(str.String, new
+       {
            controller = str.Controller,
            action = str.Action,
            UserId = str.CurrentId,
@@ -12,6 +13,6 @@
        new
        {
            @class = ViewBag.SelectedCategory == str.String ? "selected" : "not-selected"
-       }) 
+       })
     </div>
 }

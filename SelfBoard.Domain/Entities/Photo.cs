@@ -16,8 +16,8 @@ namespace SelfBoard.Domain.Entities
         public string RedactImageMimeType { get; set; }
 
         [ForeignKey("User")]
-        public int? UserId { get; set; }
-        public User User { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
 
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Like> Likes { get; set; }

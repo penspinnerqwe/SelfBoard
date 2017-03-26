@@ -9,8 +9,8 @@ namespace SelfBoard.Domain.Entities
         public int LikeId { get; set; }
 
         [ForeignKey("User")]
-        public int? UserId { get; set; }
-        public User User { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
 
         [ForeignKey("Photo")]
         public int? PhotoId { get; set; }

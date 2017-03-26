@@ -1,7 +1,7 @@
 ﻿@model SelfBoard.WebUI.Models.LikeControllModel
 @using SelfBoard.WebUI.Infrastructure;
 
-<div @Html.GetDivNewId("LikesTarget",Model.PhotoId.ToString())>
+<div @Html.GetDivNewId("LikesTarget", Model.PhotoId.ToString())>
     @using (Ajax.BeginForm("AddLike", "Like", new AjaxOptions
     {
         UpdateTargetId = "LikesTarget" + Model.PhotoId.ToString()

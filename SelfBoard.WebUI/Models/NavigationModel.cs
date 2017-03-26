@@ -10,6 +10,6 @@ namespace SelfBoard.WebUI.Models
         public string String { get; set; }
         public string Action { get; set; }
         public string Controller { get; set; }
-        public int CurrentId { get; set; }
+        public string CurrentId { get; set; }
     }
 }

@@ -3,59 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SelfBoard.Domain.Abstract;
 using SelfBoard.Domain.Entities;
+using SelfBoard.Domain.Concrete;
+using Microsoft.AspNet.Identity;
 
 namespace SelfBoard.WebUI.Controllers
 {
     public class FrendController : Controller
     {
-        private ISelfBoardRepository DBContext;
-        public FrendController(ISelfBoardRepository DBContext)
-        {
-            this.DBContext = DBContext;
-        }
+        private UnitOfWork DBContext = new UnitOfWork();
 
-        public ActionResult Frends(int UserId,string SelectedCategory)
+        public ActionResult Frends(string UserId, string SelectedCategory)
         {
             ViewBag.SelectedCategory = SelectedCategory;
-
-            var MessageStrings = DBContext.Frends
-                .Where(x => (x.SenderId == UserId || x.ReceiverId == UserId) && x.State == 1)
-                .Select(x => x.SenderId == UserId ? x.Receiver : x.Sender);
-            return View(MessageStrings);
+            return View(DBContext.Frends.GetAllFrends(UserId));
         }
 
-        public ActionResult InFrendsRequest(int UserId, string SelectedCategory)
+        public ActionResult InFrendsRequest(string UserId, string SelectedCategory)
         {
             ViewBag.SelectedCategory = SelectedCategory;
-
-            var MessageStrings = DBContext.Frends
-                .Where(x => x.ReceiverId == UserId && x.State == 0)
-                .Select(x => x.Sender);
-            return View("Frends", MessageStrings);
+            return View("Frends", DBContext.Frends.GetInFrendsRequest(UserId));
         }
 
-        public ActionResult OutFrendsRequest(int UserId, string SelectedCategory)
+        public ActionResult OutFrendsRequest(string UserId, string SelectedCategory)
         {
             ViewBag.SelectedCategory = SelectedCategory;
-
-            var MessageStrings = DBContext.Frends
-                .Where(x => x.SenderId == UserId && x.State == 0)
-                .Select(x => x.Receiver);
-            return View("Frends", MessageStrings);
+            return View("Frends", DBContext.Frends.GetOutFrendsRequest(UserId));
         }
 
-        public RedirectToRouteResult DeleteFrend(int UserId, string SelectedCategory)
+        public RedirectToRouteResult DeleteFrend(string UserId, string SelectedCategory)
         {
-            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
-            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
+            string CookieUser = User.Identity.GetUserId();
 
             ViewBag.SelectedCategory = SelectedCategory;
 
-            DBContext.Frends.FirstOrDefault(x => (x.SenderId == CookieUser && x.ReceiverId == UserId) ||
+            DBContext.Frends.GetObjects()
+                .FirstOrDefault(x => (x.SenderId == CookieUser && x.ReceiverId == UserId) ||
                 (x.SenderId == UserId && x.ReceiverId == CookieUser)).State = 0;
-            DBContext.SaveContextChanges();
+            DBContext.Save();
 
             return RedirectToRoute(new
             {
@@ -66,16 +51,17 @@ namespace SelfBoard.WebUI.Controllers
             });
         }
 
-        public RedirectToRouteResult DeleteRequest(int UserId, string SelectedCategory)
+        public RedirectToRouteResult DeleteRequest(string UserId, string SelectedCategory)
         {
-            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
-            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
+            string CookieUser = User.Identity.GetUserId();
 
             ViewBag.SelectedCategory = SelectedCategory;
+            var deleteFrendReqest = DBContext.Frends.GetObjects()
+                .FirstOrDefault(x => (x.SenderId == CookieUser && x.ReceiverId == UserId) ||
+                (x.SenderId == UserId && x.ReceiverId == CookieUser)).FrendId;
 
-            DBContext.DeleteFrend(DBContext.Frends.FirstOrDefault(x => (x.SenderId == CookieUser && x.ReceiverId == UserId) ||
-                (x.SenderId == UserId && x.ReceiverId == CookieUser)));
-            DBContext.SaveContextChanges();
+            DBContext.Frends.DeleteObject(deleteFrendReqest);
+            DBContext.Save();
 
             return RedirectToRoute(new
             {
@@ -86,16 +72,15 @@ namespace SelfBoard.WebUI.Controllers
             });
         }
 
-        public RedirectToRouteResult SendRequest(int UserId, string SelectedCategory)
+        public RedirectToRouteResult SendRequest(string UserId, string SelectedCategory)
         {
-            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
-            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
+            string CookieUser = User.Identity.GetUserId();
 
             ViewBag.SelectedCategory = SelectedCategory;
 
             Frend newFrenfd = new Frend() { State = 0, SenderId = CookieUser, ReceiverId = UserId };
-            DBContext.AddFrend(newFrenfd);
-            DBContext.SaveContextChanges();
+            DBContext.Frends.InsertObject(newFrenfd);
+            DBContext.Save();
 
             return RedirectToRoute(new
             {
@@ -106,16 +91,16 @@ namespace SelfBoard.WebUI.Controllers
             });
         }
 
-        public RedirectToRouteResult AcceptRequest(int UserId, string SelectedCategory)
+        public RedirectToRouteResult AcceptRequest(string UserId, string SelectedCategory)
         {
-            HttpCookie cookieReq = Request.Cookies["SelfBoardCookie"];
-            int CookieUser = Convert.ToInt32(cookieReq["UserId"]);
+            string CookieUser = User.Identity.GetUserId();
 
             ViewBag.SelectedCategory = SelectedCategory;
 
-            DBContext.Frends.FirstOrDefault(x => (x.SenderId == CookieUser && x.ReceiverId == UserId) ||
+            DBContext.Frends.GetObjects()
+                .FirstOrDefault(x => (x.SenderId == CookieUser && x.ReceiverId == UserId) ||
                 (x.SenderId == UserId && x.ReceiverId == CookieUser)).State = 1;
-            DBContext.SaveContextChanges();
+            DBContext.Save();
 
             return RedirectToRoute(new
             {
